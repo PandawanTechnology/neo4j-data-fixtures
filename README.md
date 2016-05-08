@@ -16,7 +16,7 @@ class UserFixture implements FixtureInterface
 {
     public function load(ConnectionInterface $connection)
     {
-        $connection->session->run('CREATE (a:Person {name:'Arthur', title:'King'})');
+        $connection->session->run("CREATE (a:Person {name:'Arthur', title:'King'})");
     }
 } 
 ```
@@ -39,7 +39,7 @@ $loader->loadFromDirectory(__DIR__);
 ```
 
 Or specify a file:
-```
+```php
 $loader->loadFromFile('./UserFixture.php');
 ```
 
@@ -76,7 +76,7 @@ class UserFixture implements DependentFixtureInterface
 
     public function load(ConnectionInterface $connection)
     {
-        $connection->session->run('CREATE (a:Person {name:'Arthur', title:'King'})');
+        $connection->session->run("CREATE (a:Person {name:'Arthur', title:'King'})");
     }
 }
  
