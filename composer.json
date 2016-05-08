@@ -24,5 +24,11 @@
         "psr-4": {
             "PandawanTechnology\\Neo4jDataFixtures\\": "src/"
         }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }
