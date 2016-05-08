@@ -1,4 +1,4 @@
-# Neo4j data fixtures
+# Pandawan Technology Neo4j data fixtures
 This library will allow you to load fixtures data into Neo4j graph database.
 It has been inspired by [Doctrine Data Fixtures Extension](https://github.com/doctrine/data-fixtures).
 
