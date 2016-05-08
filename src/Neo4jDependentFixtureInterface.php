@@ -2,9 +2,7 @@
 
 namespace PandawanTechnology\Neo4jDataFixtures;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
-
-interface DependentFixtureInterface extends FixtureInterface
+interface Neo4jDependentFixtureInterface extends Neo4jFixtureInterface
 {
     /**
      * Return the list of classes that must be loaded upfront.

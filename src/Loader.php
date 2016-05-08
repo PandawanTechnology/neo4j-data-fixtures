@@ -7,12 +7,12 @@ use PandawanTechnology\Neo4jDataFixtures\Exception\CircularReferenceException;
 class Loader
 {
     /**
-     * @var FixtureInterface[]
+     * @var Neo4jFixtureInterface[]
      */
     private $fixtures = [];
 
     /**
-     * @var FixtureInterface[]
+     * @var Neo4jFixtureInterface[]
      */
     private $orderedFixtures = [];
 
@@ -68,7 +68,7 @@ class Loader
     /**
      * Has fixture?
      *
-     * @param FixtureInterface $fixture
+     * @param Neo4jFixtureInterface $fixture
      *
      * @return bool
      */
@@ -80,9 +80,9 @@ class Loader
     /**
      * Add a fixture object instance to the loader.
      *
-     * @param FixtureInterface $fixture
+     * @param Neo4jFixtureInterface $fixture
      */
-    public function addFixture(FixtureInterface $fixture)
+    public function addFixture(Neo4jFixtureInterface $fixture)
     {
         $fixtureClass = get_class($fixture);
 
@@ -92,7 +92,7 @@ class Loader
 
         $this->fixtures[$fixtureClass] = $fixture;
 
-        if ($fixture instanceof DependentFixtureInterface) {
+        if ($fixture instanceof Neo4jDependentFixtureInterface) {
             $this->orderFixturesByDependencies = true;
 
             foreach ($fixture->getDependencies() as $class) {
@@ -141,7 +141,7 @@ class Loader
 
         $interfaces = class_implements($className);
 
-        return !in_array('PandawanTechnology\Neo4jDataFixtures\FixtureInterface', $interfaces);
+        return !in_array('PandawanTechnology\Neo4jDataFixtures\Neo4jFixtureInterface', $interfaces);
     }
 
     /**
@@ -162,7 +162,7 @@ class Loader
         foreach ($this->fixtures as $fixture) {
             $fixtureClass = get_class($fixture);
 
-            if ($fixture instanceof DependentFixtureInterface) {
+            if ($fixture instanceof Neo4jDependentFixtureInterface) {
                 $dependenciesClasses = $fixture->getDependencies();
 
                 $this->validateDependencies($dependenciesClasses);
@@ -187,7 +187,7 @@ class Loader
 
         while (($count = count($unsequencedClasses = $this->getUnsequencedClasses($sequenceForClasses))) > 0 && $count !== $lastCount) {
             foreach ($unsequencedClasses as $key => $class) {
-                /** @var DependentFixtureInterface $fixture */
+                /** @var Neo4jDependentFixtureInterface $fixture */
                 $fixture = $this->fixtures[$class];
                 $dependencies = $fixture->getDependencies();
                 $unsequencedDependencies = $this->getUnsequencedClasses($sequenceForClasses, $dependencies);
@@ -269,7 +269,7 @@ class Loader
      *
      * @param \Iterator $iterator Iterator over files from which fixtures should be loaded.
      *
-     * @return FixtureInterface[] $fixtures Array of loaded fixture object instances.
+     * @return Neo4jFixtureInterface[] $fixtures Array of loaded fixture object instances.
      */
     private function loadFromIterator(\Iterator $iterator)
     {
