@@ -2,19 +2,19 @@
 
 namespace PandawanTechnology\Neo4jDataFixtures;
 
-use GraphAware\Common\Connection\ConnectionInterface;
+use GraphAware\Neo4j\Client\Connection\Connection;
 
 class Executor
 {
     /**
-     * @var ConnectionInterface
+     * @var Connection
      */
     private $connection;
 
     /**
-     * @param ConnectionInterface $connection
+     * @param Connection $connection
      */
-    public function __construct(ConnectionInterface $connection)
+    public function __construct(Connection $connection)
     {
         $this->connection = $connection;
     }
