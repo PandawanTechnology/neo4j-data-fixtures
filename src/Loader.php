@@ -40,7 +40,7 @@ class Loader
         }
 
         $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS | \RecursiveDirectoryIterator::FOLLOW_SYMLINKS),
+            new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS),
             \RecursiveIteratorIterator::LEAVES_ONLY
         );
 
@@ -214,6 +214,7 @@ class Loader
 
         // We order the classes by sequence
         asort($sequenceForClasses);
+
         foreach ($sequenceForClasses as $class => $sequence) {
             // If fixtures were ordered
             $orderedFixtures[] = $this->fixtures[$class];

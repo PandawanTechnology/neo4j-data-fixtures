@@ -56,7 +56,7 @@ $executor = new Executor($connection);
 $executor->execute($loader->getFixtures());
 ```
 
-## Add dependencies between you fixtures
+## Add dependencies between your fixtures
 You can add dependencies within your fixtures using the `DependentFixtureInterface`:
 ```php
 <?php
