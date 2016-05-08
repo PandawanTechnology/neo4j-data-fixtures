@@ -7,7 +7,6 @@
         "graph",
         "database",
         "neo4j",
-        "Symfony",
         "fixtures",
         "data"
     ],
