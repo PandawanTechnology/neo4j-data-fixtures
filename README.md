@@ -1,6 +1,6 @@
 # Neo4j data fixtures
 This library will allow you to load fixtures data into Neo4j graph database.
-It has been inspired by [https://github.com/doctrine/data-fixtures](Doctrine Data Fixtures Extension).
+It has been inspired by [Doctrine Data Fixtures Extension](https://github.com/doctrine/data-fixtures).
 
 ## Simple usage
 All you have to do is to implement the `FixtureInterface` provided by this library:
