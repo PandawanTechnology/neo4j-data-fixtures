@@ -1,0 +1,29 @@
+{
+    "name": "pandawan-technology/neo4j-data-fixtures",
+    "description": "Allow to load Neo4j data fixtures",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "graph",
+        "database",
+        "neo4j",
+        "Symfony",
+        "fixtures",
+        "data"
+    ],
+    "homepage": "https://github.com/PandawanTechnology/neo4j-data-fixtures",
+    "authors": [
+        {
+            "name": "Xavier Coureau",
+            "email": "xavier@pandawan-technology.com"
+        }
+    ],
+    "require": {
+        "graphaware/neo4j-php-client": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "PandawanTechnology\\Neo4jDataFixtures\\": "src/"
+        }
+    }
+}
