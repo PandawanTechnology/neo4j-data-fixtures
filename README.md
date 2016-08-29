@@ -134,7 +134,7 @@ class UserFixture implements DependentFixtureInterface
     {
         $session = $connection->getSession();
 
-        if (!$userStmt $session->run("CREATE (a:Person {name:'Arthur', title:'King'}) RETURN id(a)")) {
+        if (!$userStmt = $session->run("CREATE (a:Person {name:'Arthur', title:'King'}) RETURN id(a)")) {
             return;
         }
 
